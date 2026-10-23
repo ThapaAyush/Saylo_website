@@ -26,7 +26,9 @@ connectDB();
 // Middleware
 const allowedOrigins = [
   'https://saylo-frontend.vercel.app',
+  'https://saylo-admin-omega.vercel.app',
   process.env.FRONTEND_URL,
+  process.env.ADMIN_URL,
   'http://localhost:5173',
   'http://localhost:5174',
   'http://127.0.0.1:5173',
@@ -71,6 +73,7 @@ app.get('/', (req, res) => {
     tagline: 'Say it. Mean it. Own it.',
     health: '/api/health',
     frontend: process.env.FRONTEND_URL || 'https://saylo-frontend.vercel.app',
+    admin: process.env.ADMIN_URL || 'https://saylo-admin-omega.vercel.app/admin',
     endpoints: {
       health: '/api/health',
       auth: '/api/auth',
