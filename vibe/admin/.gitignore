@@ -1,0 +1,64 @@
+# ==========================================
+# SAYLO Admin Panel (.gitignore)
+# Tech Stack: React, Vite, TailwindCSS / CSS
+# ==========================================
+
+# 1. Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# 2. Environment Variables & Secrets
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+!*.env.example
+
+# 3. Production Build Outputs
+dist/
+dist-ssr/
+build/
+*.tsbuildinfo
+
+# 4. Vite Cache & Temp Files
+.vite/
+.cache/
+.temp/
+tmp/
+
+# 5. Logs & Debugging
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# 6. Test & Coverage Reports
+coverage/
+.nyc_output/
+
+# 7. Linting & Formatting Caches
+.eslintcache
+.stylelintcache
+.oxlintrc.cache
+
+# 8. Editor & Operating System Files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# IDEs & Editors
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json

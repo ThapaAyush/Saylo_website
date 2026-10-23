@@ -1,0 +1,97 @@
+# ==========================================
+# Root .gitignore (Workspace Monorepo)
+# Covers: vibe/admin, vibe/frontend, vibe/backend
+# ==========================================
+
+# 1. Dependencies
+node_modules/
+**/node_modules/
+.pnp
+.pnp.js
+
+# 2. Environment Variables & Credentials
+.env
+*.env
+.env.local
+.env.*.local
+*.env.local
+!*.env.example
+
+# 3. Build & Bundler Outputs
+dist/
+**/dist/
+dist-ssr/
+**/dist-ssr/
+build/
+**/build/
+*.tsbuildinfo
+
+# 4. Vite & Framework Caches
+.vite/
+**/.vite/
+.cache/
+**/.cache/
+.temp/
+tmp/
+temp/
+
+# 5. Database & Local Data Dumps
+mongo-data/
+**/mongo-data/
+dump/
+**/dump/
+data/
+**/data/
+*.dump
+*.sqlite
+*.sqlite3
+*.db
+
+# 6. Uploads & Generated Media
+uploads/
+**/uploads/
+storage/
+**/storage/
+
+# 7. Logs & Process Information
+logs/
+**/logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+pids/
+*.pid
+*.seed
+
+# 8. Test & Coverage Reports
+coverage/
+**/coverage/
+.nyc_output/
+
+# 9. Lint Caches
+.eslintcache
+.stylelintcache
+.oxlintrc.cache
+
+# 10. Secrets & Certificates
+*.pem
+*.key
+*.cert
+*.crt
+
+# 11. OS & Editor Artifacts
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+**/.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json

@@ -1,0 +1,501 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    color-scheme: dark;
+
+    /* Dark Mode Design Tokens (Flagship Theme) */
+    --bg-primary: #09090B;
+    --bg-secondary: #111113;
+    --bg-card: #111113;
+    --bg-card-subtle: #18181B;
+    --bg-card-highlight: #18181F;
+    --bg-header: rgba(9, 9, 11, 0.9);
+    --bg-modal: #141416;
+    --text-primary: #F5F5F5;
+    --text-secondary: #A1A1AA;
+    --text-muted: #71717A;
+    --border-color: rgba(255, 255, 255, 0.08);
+    --border-subtle: rgba(255, 255, 255, 0.05);
+    --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+  }
+
+  [data-theme="light"],
+  .light {
+    color-scheme: light;
+
+    /* Light Mode Design Tokens (Luminous, High-Contrast Modern Aesthetic) */
+    --bg-primary: #F8FAFC;
+    --bg-secondary: #FFFFFF;
+    --bg-card: #FFFFFF;
+    --bg-card-subtle: #F1F5F9;
+    --bg-card-highlight: #EDE9FE;
+    --bg-header: rgba(255, 255, 255, 0.92);
+    --bg-modal: #FFFFFF;
+    --text-primary: #0F172A;
+    --text-secondary: #475569;
+    --text-muted: #64748B;
+    --border-color: rgba(0, 0, 0, 0.08);
+    --border-subtle: rgba(0, 0, 0, 0.05);
+    --card-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.06), 0 2px 6px -1px rgba(0, 0, 0, 0.04);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  /* Custom scrollbar - Dark Mode */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #09090B;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #27272A;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3F3F46;
+  }
+}
+
+/* Glassmorphism and glow styles */
+.glass-panel {
+  background: rgba(18, 18, 21, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-subtle {
+  background: rgba(24, 24, 27, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glow-purple {
+  box-shadow: 0 0 25px -5px rgba(139, 92, 246, 0.25);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 25px -5px rgba(34, 211, 238, 0.25);
+}
+
+.glow-pink {
+  box-shadow: 0 0 25px -5px rgba(244, 114, 182, 0.25);
+}
+
+/* Touch action optimization for mobile */
+@media (max-width: 640px) {
+  .touch-smooth {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* ==================================================================== */
+/* COMPREHENSIVE LIGHT THEME ENGINE: CRISP, VIBRANT & HARMONIOUS COLORS */
+/* ==================================================================== */
+
+.light body,
+[data-theme="light"] body {
+  background-color: #F8FAFC !important;
+  color: #0F172A !important;
+}
+
+/* 1. Page Root Backgrounds & Outer Wrappers */
+.light .bg-\[\#09090B\],
+[data-theme="light"] .bg-\[\#09090B\] {
+  background-color: #F8FAFC !important;
+}
+
+.light .bg-\[\#09090B\]\/90,
+[data-theme="light"] .bg-\[\#09090B\]\/90,
+.light .bg-\[\#09090B\]\/95,
+[data-theme="light"] .bg-\[\#09090B\]\/95 {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+}
+
+/* 2. Primary Cards & Main Panels */
+.light .bg-\[\#111113\],
+[data-theme="light"] .bg-\[\#111113\],
+.light .bg-\[\#121215\],
+[data-theme="light"] .bg-\[\#121215\],
+.light .bg-\[\#121217\],
+[data-theme="light"] .bg-\[\#121217\],
+.light .bg-\[\#121217\]\/95,
+[data-theme="light"] .bg-\[\#121217\]\/95,
+.light .bg-\[\#111116\],
+[data-theme="light"] .bg-\[\#111116\],
+.light .bg-\[\#111115\],
+[data-theme="light"] .bg-\[\#111115\],
+.light .bg-\[\#111114\],
+[data-theme="light"] .bg-\[\#111114\],
+.light .bg-\[\#141416\],
+[data-theme="light"] .bg-\[\#141416\],
+.light .bg-\[\#15151c\],
+[data-theme="light"] .bg-\[\#15151c\],
+.light .bg-\[\#0d0d12\]\/90,
+[data-theme="light"] .bg-\[\#0d0d12\]\/90 {
+  background-color: #FFFFFF !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.03) !important;
+}
+
+/* 3. Secondary Containers, Input Wrappers, & Sub-Boxes */
+.light .bg-\[\#18181B\],
+[data-theme="light"] .bg-\[\#18181B\],
+.light .bg-\[\#131318\],
+[data-theme="light"] .bg-\[\#131318\],
+.light .bg-\[\#181820\],
+[data-theme="light"] .bg-\[\#181820\],
+.light .bg-\[\#18181F\],
+[data-theme="light"] .bg-\[\#18181F\],
+.light .bg-\[\#16161B\],
+[data-theme="light"] .bg-\[\#16161B\],
+.light .bg-\[\#15151A\],
+[data-theme="light"] .bg-\[\#15151A\],
+.light .bg-\[\#18181D\],
+[data-theme="light"] .bg-\[\#18181D\],
+.light .bg-\[\#141418\],
+[data-theme="light"] .bg-\[\#141418\],
+.light .bg-\[\#202024\],
+[data-theme="light"] .bg-\[\#202024\] {
+  background-color: #F1F5F9 !important;
+  border-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+/* 4. Translucent Overlays & Subtle Fills */
+.light .bg-white\/5,
+[data-theme="light"] .bg-white\/5,
+.light .bg-white\/8,
+[data-theme="light"] .bg-white\/8,
+.light .bg-white\/10,
+[data-theme="light"] .bg-white\/10,
+.light .bg-white\/\[0\.04\],
+[data-theme="light"] .bg-white\/\[0\.04\],
+.light .bg-white\/\[0\.03\],
+[data-theme="light"] .bg-white\/\[0\.03\] {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+}
+
+.light .hover\:bg-white\/5:hover,
+[data-theme="light"] .hover\:bg-white\/5:hover,
+.light .hover\:bg-white\/10:hover,
+[data-theme="light"] .hover\:bg-white\/10:hover {
+  background-color: rgba(0, 0, 0, 0.07) !important;
+}
+
+/* 5. Glassmorphism Panels in Light Mode */
+.light .glass-panel,
+[data-theme="light"] .glass-panel {
+  background: rgba(255, 255, 255, 0.88) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.06) !important;
+}
+
+.light .glass-panel-subtle,
+[data-theme="light"] .glass-panel-subtle {
+  background: rgba(248, 250, 252, 0.8) !important;
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
+}
+
+/* 6. Headers, Navigation, & Footers */
+.light header,
+[data-theme="light"] header {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+  border-bottom-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.04) !important;
+}
+
+.light header nav a.bg-white\/10,
+[data-theme="light"] header nav a.bg-white\/10 {
+  background-color: rgba(139, 92, 246, 0.12) !important;
+  color: #7C3AED !important;
+}
+
+.light header nav a:not(.bg-white\/10),
+[data-theme="light"] header nav a:not(.bg-white\/10) {
+  color: #475569 !important;
+}
+
+.light header nav a:not(.bg-white\/10):hover,
+[data-theme="light"] header nav a:not(.bg-white\/10):hover {
+  color: #0F172A !important;
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+.light footer,
+[data-theme="light"] footer {
+  background-color: #FFFFFF !important;
+  border-top-color: rgba(0, 0, 0, 0.08) !important;
+  color: #475569 !important;
+}
+
+.light nav.md\:hidden,
+[data-theme="light"] nav.md\:hidden {
+  background-color: rgba(255, 255, 255, 0.96) !important;
+  border-top-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* 7. Borders in Light Mode */
+.light .border-white\/5,
+[data-theme="light"] .border-white\/5,
+.light .border-white\/8,
+[data-theme="light"] .border-white\/8,
+.light .border-white\/10,
+[data-theme="light"] .border-white\/10,
+.light .border-white\/15,
+[data-theme="light"] .border-white\/15,
+.light .border-white\/20,
+[data-theme="light"] .border-white\/20,
+.light .border-white\/30,
+[data-theme="light"] .border-white\/30 {
+  border-color: rgba(0, 0, 0, 0.09) !important;
+}
+
+/* 8. Text Contrast & Hierarchy in Light Mode */
+.light .text-white,
+[data-theme="light"] .text-white,
+.light .text-\[\#F5F5F5\],
+[data-theme="light"] .text-\[\#F5F5F5\],
+.light .text-\[\#D4D4D8\],
+[data-theme="light"] .text-\[\#D4D4D8\] {
+  color: #0F172A !important;
+}
+
+.light .text-zinc-200,
+[data-theme="light"] .text-zinc-200 {
+  color: #1E293B !important;
+}
+
+.light .text-zinc-300,
+[data-theme="light"] .text-zinc-300 {
+  color: #334155 !important;
+}
+
+.light .text-\[\#A1A1AA\],
+[data-theme="light"] .text-\[\#A1A1AA\],
+.light .text-zinc-400,
+[data-theme="light"] .text-zinc-400 {
+  color: #475569 !important;
+}
+
+.light .text-zinc-500,
+[data-theme="light"] .text-zinc-500,
+.light .text-\[\#71717A\],
+[data-theme="light"] .text-\[\#71717A\] {
+  color: #64748B !important;
+}
+
+/* 9. RELEVANT HIGH-CONTRAST ACCENT COLORS IN LIGHT MODE */
+/* Deep Violet */
+.light .text-purple-200,
+[data-theme="light"] .text-purple-200,
+.light .text-purple-300,
+[data-theme="light"] .text-purple-300,
+.light .text-\[\#C4B5FD\],
+[data-theme="light"] .text-\[\#C4B5FD\],
+.light .text-\[\#A78BFA\],
+[data-theme="light"] .text-\[\#A78BFA\] {
+  color: #6D28D9 !important;
+}
+
+/* Ocean Cyan */
+.light .text-cyan-200,
+[data-theme="light"] .text-cyan-200,
+.light .text-cyan-300,
+[data-theme="light"] .text-cyan-300,
+.light .text-\[\#22D3EE\],
+[data-theme="light"] .text-\[\#22D3EE\] {
+  color: #0284C7 !important;
+}
+
+/* Forest Lime */
+.light .text-lime-200,
+[data-theme="light"] .text-lime-200,
+.light .text-lime-300,
+[data-theme="light"] .text-lime-300,
+.light .text-\[\#A3E635\],
+[data-theme="light"] .text-\[\#A3E635\] {
+  color: #4D7C0F !important;
+}
+
+/* Vibrant Emerald */
+.light .text-emerald-200,
+[data-theme="light"] .text-emerald-200,
+.light .text-emerald-300,
+[data-theme="light"] .text-emerald-300 {
+  color: #047857 !important;
+}
+
+/* Rich Rose / Pink */
+.light .text-pink-200,
+[data-theme="light"] .text-pink-200,
+.light .text-pink-300,
+[data-theme="light"] .text-pink-300,
+.light .text-\[\#F472B6\],
+[data-theme="light"] .text-\[\#F472B6\] {
+  color: #BE185D !important;
+}
+
+/* Deep Amber / Gold */
+.light .text-amber-200,
+[data-theme="light"] .text-amber-200,
+.light .text-amber-300,
+[data-theme="light"] .text-amber-300 {
+  color: #B45309 !important;
+}
+
+/* 10. RELEVANT PILL & BADGE BACKGROUNDS IN LIGHT MODE */
+.light .bg-purple-500\/10,
+.light .bg-purple-500\/15,
+.light .bg-purple-500\/20,
+.light .bg-\[\#8B5CF6\]\/10,
+.light .bg-\[\#8B5CF6\]\/15,
+.light .bg-\[\#8B5CF6\]\/20,
+[data-theme="light"] .bg-purple-500\/10,
+[data-theme="light"] .bg-purple-500\/15,
+[data-theme="light"] .bg-purple-500\/20,
+[data-theme="light"] .bg-\[\#8B5CF6\]\/10,
+[data-theme="light"] .bg-\[\#8B5CF6\]\/15,
+[data-theme="light"] .bg-\[\#8B5CF6\]\/20 {
+  background-color: rgba(139, 92, 246, 0.12) !important;
+  border-color: rgba(139, 92, 246, 0.28) !important;
+  color: #6D28D9 !important;
+}
+
+.light .bg-cyan-500\/10,
+.light .bg-cyan-500\/15,
+.light .bg-cyan-500\/20,
+.light .bg-\[\#22D3EE\]\/10,
+.light .bg-\[\#22D3EE\]\/15,
+.light .bg-\[\#22D3EE\]\/20,
+[data-theme="light"] .bg-cyan-500\/10,
+[data-theme="light"] .bg-cyan-500\/15,
+[data-theme="light"] .bg-cyan-500\/20,
+[data-theme="light"] .bg-\[\#22D3EE\]\/10,
+[data-theme="light"] .bg-\[\#22D3EE\]\/15,
+[data-theme="light"] .bg-\[\#22D3EE\]\/20 {
+  background-color: rgba(14, 165, 233, 0.12) !important;
+  border-color: rgba(14, 165, 233, 0.28) !important;
+  color: #0284C7 !important;
+}
+
+.light .bg-emerald-500\/10,
+.light .bg-emerald-500\/15,
+.light .bg-emerald-500\/20,
+[data-theme="light"] .bg-emerald-500\/10,
+[data-theme="light"] .bg-emerald-500\/15,
+[data-theme="light"] .bg-emerald-500\/20 {
+  background-color: rgba(16, 185, 129, 0.12) !important;
+  border-color: rgba(16, 185, 129, 0.28) !important;
+  color: #047857 !important;
+}
+
+.light .bg-lime-500\/10,
+.light .bg-lime-500\/15,
+.light .bg-lime-500\/20,
+.light .bg-\[\#A3E635\]\/10,
+.light .bg-\[\#A3E635\]\/15,
+.light .bg-\[\#A3E635\]\/20,
+[data-theme="light"] .bg-lime-500\/10,
+[data-theme="light"] .bg-lime-500\/15,
+[data-theme="light"] .bg-lime-500\/20,
+[data-theme="light"] .bg-\[\#A3E635\]\/10,
+[data-theme="light"] .bg-\[\#A3E635\]\/15,
+[data-theme="light"] .bg-\[\#A3E635\]\/20 {
+  background-color: rgba(101, 163, 13, 0.12) !important;
+  border-color: rgba(101, 163, 13, 0.28) !important;
+  color: #3F6212 !important;
+}
+
+.light .bg-pink-500\/10,
+.light .bg-pink-500\/15,
+.light .bg-pink-500\/20,
+.light .bg-\[\#F472B6\]\/10,
+.light .bg-\[\#F472B6\]\/15,
+.light .bg-\[\#F472B6\]\/20,
+[data-theme="light"] .bg-pink-500\/10,
+[data-theme="light"] .bg-pink-500\/15,
+[data-theme="light"] .bg-pink-500\/20,
+[data-theme="light"] .bg-\[\#F472B6\]\/10,
+[data-theme="light"] .bg-\[\#F472B6\]\/15,
+[data-theme="light"] .bg-\[\#F472B6\]\/20 {
+  background-color: rgba(236, 72, 153, 0.12) !important;
+  border-color: rgba(236, 72, 153, 0.28) !important;
+  color: #BE185D !important;
+}
+
+.light .bg-amber-500\/10,
+.light .bg-amber-500\/15,
+.light .bg-amber-500\/20,
+.light .bg-orange-500\/15,
+[data-theme="light"] .bg-amber-500\/10,
+[data-theme="light"] .bg-amber-500\/15,
+[data-theme="light"] .bg-amber-500\/20,
+[data-theme="light"] .bg-orange-500\/15 {
+  background-color: rgba(245, 158, 11, 0.12) !important;
+  border-color: rgba(245, 158, 11, 0.28) !important;
+  color: #B45309 !important;
+}
+
+/* 11. Preserving Pure White Text on Buttons & Floating Avatars */
+.light .bg-\[\#8B5CF6\] .text-white,
+[data-theme="light"] .bg-\[\#8B5CF6\] .text-white,
+.light .bg-gradient-to-tr .text-white,
+[data-theme="light"] .bg-gradient-to-tr .text-white,
+.light .bg-gradient-to-r .text-white,
+[data-theme="light"] .bg-gradient-to-r .text-white,
+.light button.bg-\[\#8B5CF6\],
+[data-theme="light"] button.bg-\[\#8B5CF6\],
+.light .keep-white,
+[data-theme="light"] .keep-white {
+  color: #FFFFFF !important;
+}
+
+/* 12. Form Controls: Inputs & Textareas */
+.light input:not([type="checkbox"]):not([type="radio"]),
+[data-theme="light"] input:not([type="checkbox"]):not([type="radio"]),
+.light textarea,
+[data-theme="light"] textarea {
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
+  border-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+.light input::placeholder,
+[data-theme="light"] input::placeholder,
+.light textarea::placeholder,
+[data-theme="light"] textarea::placeholder {
+  color: #94A3B8 !important;
+}
+
+/* 13. Progress segments & Inactive indicators in Light Mode */
+.light .bg-zinc-800,
+[data-theme="light"] .bg-zinc-800 {
+  background-color: #E2E8F0 !important;
+}
+
+/* 14. Light Mode Scrollbar */
+.light ::-webkit-scrollbar-track,
+[data-theme="light"] ::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+.light ::-webkit-scrollbar-thumb,
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+}
+.light ::-webkit-scrollbar-thumb:hover,
+[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
