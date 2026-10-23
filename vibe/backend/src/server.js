@@ -63,8 +63,32 @@ app.use('/api/posts', socialRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/game', gameWorldRoutes);
 
-// Health check
-app.get('/api/health', (req, res) => {
+// Root welcome & status endpoint
+app.get('/', (req, res) => {
+  res.json({
+    status: 'online',
+    platform: 'Saylo — English Learning Platform API',
+    tagline: 'Say it. Mean it. Own it.',
+    health: '/api/health',
+    frontend: process.env.FRONTEND_URL || 'https://saylo-frontend.vercel.app',
+    endpoints: {
+      health: '/api/health',
+      auth: '/api/auth',
+      vocabulary: '/api/vocabulary',
+      reading: '/api/reading',
+      writing: '/api/writing',
+      speaking: '/api/speaking',
+      game: '/api/game',
+      quests: '/api/quests',
+      posts: '/api/posts',
+      admin: '/api/admin',
+    },
+    timestamp: new Date(),
+  });
+});
+
+// Health check (responds to both /health and /api/health)
+app.get(['/health', '/api/health'], (req, res) => {
   res.json({
     status: 'healthy',
     platform: 'Saylo — Say it. Mean it. Own it.',
