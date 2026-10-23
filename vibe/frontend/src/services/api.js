@@ -1,4 +1,4 @@
-const API_BASE = '/api';
+const API_BASE = (import.meta.env.VITE_API_URL || import.meta.env.VITE_API_BASE || '').replace(/\/$/, '') + '/api';
 
 const getHeaders = () => {
   const token = localStorage.getItem('saylo_token') || localStorage.getItem('vibe_token');

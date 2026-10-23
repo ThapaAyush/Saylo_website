@@ -123,7 +123,7 @@ export const Sidebar = () => {
           Learner App
         </span>
         <a
-          href="http://localhost:5173"
+          href={import.meta.env.VITE_FRONTEND_URL || "https://saylo-frontend.vercel.app/home"}
           target="_blank"
           rel="noreferrer"
           className="flex items-center justify-between text-xs font-semibold text-[#22D3EE] hover:underline"
